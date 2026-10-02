@@ -60,10 +60,15 @@ func _refresh() -> void:
 		b.add_theme_color_override("font_color", Color(0.96, 0.93, 0.86))
 		b.add_theme_font_size_override("font_size", 13)
 		var fort := GameState.fort_for_territory(tid)
-		var mark := " *" if not fort.is_empty() else ""
-		var n_armies := GameState.armies_at(tid).size()
+		var visible := GameState.is_visible(tid)
+		var mark := " *" if (not fort.is_empty() and visible) else ""
+		var n_armies := GameState.armies_at(tid).size() if visible else 0
 		var am := ("\narmy x%d" % n_armies) if n_armies > 0 else ""
-		b.text = str(t.get("name", tid)) + mark + "\n" + str(t.get("terrain", "")) + am
+		if not visible:
+			b.text = "Unknown"
+			sb.bg_color = Color(0.15, 0.14, 0.13)
+		else:
+			b.text = str(t.get("name", tid)) + mark + "\n" + str(t.get("terrain", "")) + am
 	var army := _army_by_id(selected_army_id)
 	var info := "Tap a territory.\nGold = Swarajya, red = Adil Shahi.\n* marks a fort.\n\nHISTORICAL BACKGROUND\n" + str(GameState.campaign.get("historical_background", ""))
 	if selected_territory != "":
@@ -162,3 +167,11 @@ func _on_save() -> void:
 
 func _on_menu() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+func _on_peace() -> void:
+	GameState.log_lines.append(GameState.propose_peace())
+	_refresh()
+
+func _on_war() -> void:
+	GameState.log_lines.append(GameState.declare_war())
+	_refresh()

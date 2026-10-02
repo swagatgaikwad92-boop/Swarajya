@@ -67,6 +67,12 @@ text = "Save"
 [node name="Menu" type="Button" parent="Side/Buttons"]
 text = "Menu"
 
+[node name="Peace" type="Button" parent="Side/Buttons"]
+text = "Offer peace"
+
+[node name="War" type="Button" parent="Side/Buttons"]
+text = "Declare war"
+
 [node name="EndPanel" type="ColorRect" parent="."]
 visible = false
 anchor_left = 0.15
@@ -102,4 +108,6 @@ text = "Return to menu"
 [connection signal="pressed" from="Side/Buttons/EndTurn" to="." method="_on_end_turn"]
 [connection signal="pressed" from="Side/Buttons/Save" to="." method="_on_save"]
 [connection signal="pressed" from="Side/Buttons/Menu" to="." method="_on_menu"]
+[connection signal="pressed" from="Side/Buttons/Peace" to="." method="_on_peace"]
+[connection signal="pressed" from="Side/Buttons/War" to="." method="_on_war"]
 [connection signal="pressed" from="EndPanel/VBox/Menu2" to="." method="_on_menu"]

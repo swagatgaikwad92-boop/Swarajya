@@ -44,3 +44,8 @@ This scenario is not a reconstruction of the 1659 Pratapgad encounter.
 - Era select screen (II and III locked).
 - Historical Atlas / Codex.
 - Attack tactics: aggressive, defensive, harass.
+
+## 0.3 additions
+- Fog of war: unexplored territories show as Unknown. Owning or moving next to a territory reveals it.
+- Diplomacy stub: offer peace (rejected while relation is low), declare war. AI will not attack during peace.
+- Relation is a gameplay value, not a historical measurement.

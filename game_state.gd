@@ -24,6 +24,9 @@ var enemy_faction: String = "adilshahi"
 var log_lines: Array = []
 var outcome: String = ""
 var outcome_detail: String = ""
+var relation: int = -40
+var at_war: bool = true
+var explored: Dictionary = {}
 
 func _ready() -> void:
 	pass
@@ -69,6 +72,9 @@ func start_campaign() -> void:
 			"supply": int(a.get("supply", 80))
 		})
 	log_lines = ["Campaign started. Year %d. GAMEPLAY scenario, not a literal reconstruction." % year]
+	relation = -40
+	at_war = true
+	explored = {"raigad": true, "pratapgad": true, "torna": true, "mahad": true, "sinhagad": true}
 	refresh_mp()
 
 func territory_by_id(tid: String) -> Dictionary:
@@ -158,6 +164,9 @@ func move_army(army: Dictionary, dest: String) -> String:
 		return "Terrain costs %d movement." % cost
 	army["mp"] -= cost
 	army["territory"] = dest
+	explored[dest] = true
+	for nid in neighbours_of(dest):
+		explored[nid] = true
 	if t.get("owner") != army["owner"]:
 		t["owner"] = army["owner"]
 		stability = mini(100, stability + 2)
@@ -244,7 +253,7 @@ func _ai_turn() -> void:
 		options.shuffle()
 		for nid in options:
 			var nt := territory_by_id(nid)
-			if nt.get("owner") == player_faction and a["mp"] > 0:
+			if at_war and nt.get("owner") == player_faction and a["mp"] > 0:
 				var defenders := []
 				for oa in armies_at(nid):
 					if oa["owner"] == player_faction:
@@ -258,7 +267,7 @@ func _ai_turn() -> void:
 		# step toward a player territory
 		for nid in neighbours_of(a["territory"]):
 			var nt2 := territory_by_id(nid)
-			if nt2.get("owner") != enemy_faction and armies_at(nid).is_empty() and a["mp"] > 0:
+			if at_war and nt2.get("owner") != enemy_faction and armies_at(nid).is_empty() and a["mp"] > 0:
 				a["territory"] = nid
 				a["mp"] -= 1
 				nt2["owner"] = enemy_faction
@@ -392,6 +401,31 @@ func _check_end() -> void:
 		outcome = "defeat"
 		outcome_detail = "Campaign time expired without meeting victory conditions."
 
+func propose_peace() -> String:
+	if not at_war:
+		return "Already at peace."
+	if relation < -10:
+		relation += 5
+		return "Adil Shahi rejects peace. Relation %d (gameplay)." % relation
+	at_war = false
+	relation = 10
+	log_lines.append("Peace agreed. GAMEPLAY treaty, not a documented treaty.")
+	return "Peace agreed."
+
+func declare_war() -> String:
+	if at_war:
+		return "Already at war."
+	at_war = true
+	relation = -30
+	log_lines.append("War declared.")
+	return "War declared."
+
+func is_visible(tid: String) -> bool:
+	var t := territory_by_id(tid)
+	if t.get("owner") == player_faction:
+		return true
+	return bool(explored.get(tid, false))
+
 func to_save() -> Dictionary:
 	return {
 		"version": SAVE_VERSION,
@@ -405,7 +439,10 @@ func to_save() -> Dictionary:
 		"armies": armies,
 		"log_lines": log_lines,
 		"outcome": outcome,
-		"outcome_detail": outcome_detail
+		"outcome_detail": outcome_detail,
+		"relation": relation,
+		"at_war": at_war,
+		"explored": explored
 	}
 
 func save_game() -> String:
@@ -441,4 +478,9 @@ func load_game() -> bool:
 	log_lines = data.get("log_lines", log_lines)
 	outcome = str(data.get("outcome", ""))
 	outcome_detail = str(data.get("outcome_detail", ""))
+	relation = int(data.get("relation", relation))
+	at_war = bool(data.get("at_war", true))
+	var ex = data.get("explored", {})
+	if typeof(ex) == TYPE_DICTIONARY:
+		explored = ex
 	return true
