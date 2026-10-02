@@ -29,5 +29,82 @@
     ],
     "gameplay_attack_mod": 1,
     "gameplay_defense_mod": 0
+  },
+  {
+    "id": "bajirao",
+    "name": "Baji Rao I",
+    "period": "1700\u20131740",
+    "faction": "maratha",
+    "role": "Peshwa / field commander",
+    "historical_biography": "Peshwa from 1720. Associated with rapid cavalry campaigns across the Deccan and into northern India. This scenario uses him as the player commander in a simplified expansion setting.",
+    "confidence": "high",
+    "sources_note": "Standard modern histories of the Peshwa period; campaign routes and force sizes remain debated.",
+    "gameplay_traits": [
+      "cavalry_thrust",
+      "mobility"
+    ],
+    "gameplay_attack_mod": 3,
+    "gameplay_defense_mod": 0
+  },
+  {
+    "id": "nizam_ul_mulk",
+    "name": "Nizam-ul-Mulk (Asaf Jah I)",
+    "period": "1671\u20131748",
+    "faction": "nizam",
+    "role": "Nizam / regional power",
+    "historical_biography": "Founder of the Asaf Jahi dynasty at Hyderabad. Opposed and negotiated with Maratha expansion in the Deccan. Used here as the principal opposing commander abstraction.",
+    "confidence": "high",
+    "sources_note": "Broad outline high confidence; specific engagements in this slice are simplified.",
+    "gameplay_traits": [
+      "defensive_depth"
+    ],
+    "gameplay_attack_mod": 1,
+    "gameplay_defense_mod": 2
+  },
+  {
+    "id": "mahaji_scindia",
+    "name": "Mahadji Scindia",
+    "period": "c. 1730\u20131794",
+    "faction": "scindia",
+    "role": "house leader / commander",
+    "historical_biography": "Major Scindia leader in the later eighteenth century. Used here as the player commander in a confederacy abstraction.",
+    "confidence": "high",
+    "sources_note": "Broad career is well attested; this scenario does not reconstruct any single campaign.",
+    "gameplay_traits": [
+      "politics",
+      "heavy_column"
+    ],
+    "gameplay_attack_mod": 2,
+    "gameplay_defense_mod": 2
+  },
+  {
+    "id": "tukoji_holkar",
+    "name": "Tukoji Holkar (scenario)",
+    "period": "late 18th c.",
+    "faction": "holkar",
+    "role": "house leader",
+    "historical_biography": "Holkar leadership abstraction for competing-house dynamics. Not a literal portrait of one year.",
+    "confidence": "medium",
+    "sources_note": "House rivalry is historical; exact pairing is gameplay.",
+    "gameplay_traits": [
+      "mobility"
+    ],
+    "gameplay_attack_mod": 2,
+    "gameplay_defense_mod": 1
+  },
+  {
+    "id": "company_officer",
+    "name": "Company field force",
+    "period": "late 18th\u2013early 19th c.",
+    "faction": "company",
+    "role": "Company army abstraction",
+    "historical_biography": "Abstracted Company field force for late-period pressure. Not a named historical general.",
+    "confidence": "medium",
+    "sources_note": "Company expansion is historical; this unit is a gameplay stand-in.",
+    "gameplay_traits": [
+      "discipline"
+    ],
+    "gameplay_attack_mod": 2,
+    "gameplay_defense_mod": 2
   }
 ]

@@ -1,0 +1,173 @@
+[
+  {
+    "id": "pune2",
+    "name": "Pune",
+    "owner": "maratha",
+    "terrain": "plains",
+    "neighbours": [
+      "satara2",
+      "ahmednagar",
+      "nashik"
+    ],
+    "fort": null,
+    "revenue": 14,
+    "strategic": 4,
+    "pos": [
+      200,
+      420
+    ]
+  },
+  {
+    "id": "satara2",
+    "name": "Satara",
+    "owner": "maratha",
+    "terrain": "hills",
+    "neighbours": [
+      "pune2",
+      "kolhapur"
+    ],
+    "fort": "satara_fort",
+    "revenue": 10,
+    "strategic": 4,
+    "pos": [
+      180,
+      280
+    ]
+  },
+  {
+    "id": "kolhapur",
+    "name": "Kolhapur",
+    "owner": "maratha",
+    "terrain": "plains",
+    "neighbours": [
+      "satara2"
+    ],
+    "fort": null,
+    "revenue": 8,
+    "strategic": 2,
+    "pos": [
+      120,
+      180
+    ]
+  },
+  {
+    "id": "ahmednagar",
+    "name": "Ahmednagar",
+    "owner": "nizam",
+    "terrain": "plains",
+    "neighbours": [
+      "pune2",
+      "aurangabad",
+      "nashik"
+    ],
+    "fort": "ahmednagar_fort",
+    "revenue": 12,
+    "strategic": 4,
+    "pos": [
+      340,
+      400
+    ]
+  },
+  {
+    "id": "aurangabad",
+    "name": "Aurangabad",
+    "owner": "nizam",
+    "terrain": "plains",
+    "neighbours": [
+      "ahmednagar",
+      "hyderabad",
+      "burhanpur"
+    ],
+    "fort": null,
+    "revenue": 13,
+    "strategic": 4,
+    "pos": [
+      480,
+      360
+    ]
+  },
+  {
+    "id": "hyderabad",
+    "name": "Hyderabad",
+    "owner": "nizam",
+    "terrain": "plains",
+    "neighbours": [
+      "aurangabad",
+      "gulbarga"
+    ],
+    "fort": "golconda",
+    "revenue": 18,
+    "strategic": 5,
+    "pos": [
+      600,
+      280
+    ]
+  },
+  {
+    "id": "gulbarga",
+    "name": "Gulbarga",
+    "owner": "nizam",
+    "terrain": "dry",
+    "neighbours": [
+      "hyderabad"
+    ],
+    "fort": null,
+    "revenue": 7,
+    "strategic": 2,
+    "pos": [
+      560,
+      140
+    ]
+  },
+  {
+    "id": "nashik",
+    "name": "Nashik",
+    "owner": "maratha",
+    "terrain": "hills",
+    "neighbours": [
+      "pune2",
+      "ahmednagar",
+      "burhanpur"
+    ],
+    "fort": null,
+    "revenue": 9,
+    "strategic": 3,
+    "pos": [
+      260,
+      520
+    ]
+  },
+  {
+    "id": "burhanpur",
+    "name": "Burhanpur",
+    "owner": "nizam",
+    "terrain": "plains",
+    "neighbours": [
+      "aurangabad",
+      "nashik"
+    ],
+    "fort": null,
+    "revenue": 11,
+    "strategic": 3,
+    "pos": [
+      420,
+      500
+    ]
+  },
+  {
+    "id": "malwa",
+    "name": "Malwa frontier",
+    "owner": "mughal",
+    "terrain": "plains",
+    "neighbours": [
+      "burhanpur"
+    ],
+    "fort": null,
+    "revenue": 10,
+    "strategic": 3,
+    "pos": [
+      380,
+      620
+    ]
+  }
+]

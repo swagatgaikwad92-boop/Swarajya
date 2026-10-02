@@ -1,0 +1,38 @@
+[
+  {
+    "id": "satara_fort",
+    "name": "Satara Fort",
+    "territory": "satara2",
+    "defense": 7,
+    "garrison_cap": 2,
+    "supply": 2,
+    "strategic": 4,
+    "historical_significance": "Important seat associated with the later Maratha polity. Simplified in this scenario.",
+    "confidence": "high",
+    "gameplay_note": "Defense and supply values are gameplay abstractions."
+  },
+  {
+    "id": "ahmednagar_fort",
+    "name": "Ahmednagar Fort",
+    "territory": "ahmednagar",
+    "defense": 6,
+    "garrison_cap": 2,
+    "supply": 2,
+    "strategic": 3,
+    "historical_significance": "Major Deccan fort; changed hands several times in the 17th\u201318th centuries.",
+    "confidence": "high",
+    "gameplay_note": "Defense and supply values are gameplay abstractions."
+  },
+  {
+    "id": "golconda",
+    "name": "Golconda",
+    "territory": "hyderabad",
+    "defense": 9,
+    "garrison_cap": 3,
+    "supply": 3,
+    "strategic": 5,
+    "historical_significance": "Famous fort near Hyderabad. In this Era II abstraction it anchors Nizam control.",
+    "confidence": "high",
+    "gameplay_note": "Defense and supply values are gameplay abstractions."
+  }
+]

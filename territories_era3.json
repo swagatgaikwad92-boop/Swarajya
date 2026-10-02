@@ -1,0 +1,173 @@
+[
+  {
+    "id": "gwalior",
+    "name": "Gwalior",
+    "owner": "scindia",
+    "terrain": "hills",
+    "neighbours": [
+      "malwa3",
+      "delhi_fringe",
+      "bundelkhand"
+    ],
+    "fort": "gwalior_fort",
+    "revenue": 14,
+    "strategic": 5,
+    "pos": [
+      360,
+      420
+    ]
+  },
+  {
+    "id": "malwa3",
+    "name": "Malwa",
+    "owner": "scindia",
+    "terrain": "plains",
+    "neighbours": [
+      "gwalior",
+      "indore",
+      "ujjain"
+    ],
+    "fort": null,
+    "revenue": 12,
+    "strategic": 4,
+    "pos": [
+      280,
+      340
+    ]
+  },
+  {
+    "id": "indore",
+    "name": "Indore",
+    "owner": "holkar",
+    "terrain": "plains",
+    "neighbours": [
+      "malwa3",
+      "ujjain",
+      "khandesh"
+    ],
+    "fort": null,
+    "revenue": 11,
+    "strategic": 4,
+    "pos": [
+      200,
+      280
+    ]
+  },
+  {
+    "id": "ujjain",
+    "name": "Ujjain",
+    "owner": "holkar",
+    "terrain": "plains",
+    "neighbours": [
+      "malwa3",
+      "indore"
+    ],
+    "fort": null,
+    "revenue": 9,
+    "strategic": 3,
+    "pos": [
+      240,
+      200
+    ]
+  },
+  {
+    "id": "delhi_fringe",
+    "name": "Delhi fringe",
+    "owner": "company",
+    "terrain": "plains",
+    "neighbours": [
+      "gwalior",
+      "doab"
+    ],
+    "fort": null,
+    "revenue": 10,
+    "strategic": 4,
+    "pos": [
+      420,
+      520
+    ]
+  },
+  {
+    "id": "doab",
+    "name": "Doab posts",
+    "owner": "company",
+    "terrain": "plains",
+    "neighbours": [
+      "delhi_fringe",
+      "bundelkhand"
+    ],
+    "fort": null,
+    "revenue": 11,
+    "strategic": 3,
+    "pos": [
+      500,
+      460
+    ]
+  },
+  {
+    "id": "bundelkhand",
+    "name": "Bundelkhand",
+    "owner": "scindia",
+    "terrain": "hills",
+    "neighbours": [
+      "gwalior",
+      "doab"
+    ],
+    "fort": null,
+    "revenue": 8,
+    "strategic": 2,
+    "pos": [
+      460,
+      360
+    ]
+  },
+  {
+    "id": "khandesh",
+    "name": "Khandesh",
+    "owner": "holkar",
+    "terrain": "plains",
+    "neighbours": [
+      "indore",
+      "pune3"
+    ],
+    "fort": null,
+    "revenue": 8,
+    "strategic": 2,
+    "pos": [
+      140,
+      360
+    ]
+  },
+  {
+    "id": "pune3",
+    "name": "Pune (Peshwa)",
+    "owner": "maratha",
+    "terrain": "plains",
+    "neighbours": [
+      "khandesh"
+    ],
+    "fort": null,
+    "revenue": 13,
+    "strategic": 4,
+    "pos": [
+      100,
+      440
+    ]
+  },
+  {
+    "id": "agra_road",
+    "name": "Agra road",
+    "owner": "company",
+    "terrain": "plains",
+    "neighbours": [
+      "delhi_fringe"
+    ],
+    "fort": null,
+    "revenue": 7,
+    "strategic": 2,
+    "pos": [
+      480,
+      580
+    ]
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "gwalior_fort",
+    "name": "Gwalior Fort",
+    "territory": "gwalior",
+    "defense": 8,
+    "garrison_cap": 3,
+    "supply": 3,
+    "strategic": 5,
+    "historical_significance": "Major stronghold associated with Scindia power. Simplified.",
+    "confidence": "high",
+    "gameplay_note": "Defense and supply values are gameplay abstractions."
+  }
+]

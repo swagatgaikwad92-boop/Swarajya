@@ -3,7 +3,7 @@ config_version=5
 
 [application]
 config/name="Swarajya: The Maratha Age"
-config/description="Original turn-based grand strategy. Version 0.3 vertical slice."
+config/description="Original turn-based grand strategy. Version 0.6 vertical slice."
 run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"

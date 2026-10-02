@@ -24,6 +24,7 @@ var enemy_faction: String = "adilshahi"
 var log_lines: Array = []
 var outcome: String = ""
 var outcome_detail: String = ""
+var selected_campaign_path: String = "res://data/campaigns/campaign_pratapgad.json"
 var relation: int = -40
 var at_war: bool = true
 var explored: Dictionary = {}
@@ -44,9 +45,11 @@ func start_campaign() -> void:
 	factions = load_json("res://data/factions/factions.json")
 	unit_defs = load_json("res://data/units/units.json")
 	commanders = load_json("res://data/commanders/commanders.json")
-	forts = load_json("res://data/forts/forts.json")
-	territories = load_json("res://data/territories/territories.json")
-	campaign = load_json("res://data/campaigns/campaign_pratapgad.json")
+	campaign = load_json(selected_campaign_path)
+	var tpath := str(campaign.get("territories_file", "res://data/territories/territories.json"))
+	var fpath := str(campaign.get("forts_file", "res://data/forts/forts.json"))
+	territories = load_json(tpath)
+	forts = load_json(fpath)
 	year = int(campaign.get("year", 1656))
 	turn = 1
 	max_turns = int(campaign.get("max_turns", 16))
@@ -74,7 +77,13 @@ func start_campaign() -> void:
 	log_lines = ["Campaign started. Year %d. GAMEPLAY scenario, not a literal reconstruction." % year]
 	relation = -40
 	at_war = true
-	explored = {"raigad": true, "pratapgad": true, "torna": true, "mahad": true, "sinhagad": true}
+	var cid0 := str(campaign.get("id", ""))
+	if cid0 == "peshwa_thrust":
+		explored = {"pune2": true, "satara2": true, "kolhapur": true, "nashik": true, "ahmednagar": true}
+	elif cid0 == "confederacy_pressure":
+		explored = {"gwalior": true, "malwa3": true, "bundelkhand": true, "indore": true, "delhi_fringe": true}
+	else:
+		explored = {"raigad": true, "pratapgad": true, "torna": true, "mahad": true, "sinhagad": true}
 	refresh_mp()
 
 func territory_by_id(tid: String) -> Dictionary:
@@ -156,6 +165,11 @@ func move_army(army: Dictionary, dest: String) -> String:
 			hostiles.append(a)
 	if hostiles.size() > 0:
 		return "Enemy present — attack instead."
+	var dest_owner := str(territory_by_id(dest).get("owner", ""))
+	if dest_owner != army["owner"] and at_war:
+		return "At war — attack to enter."
+	if dest_owner != army["owner"] and relation < 0:
+		return "No military access."
 	var t := territory_by_id(dest)
 	var cost := 1
 	if t.get("terrain") in ["mountains", "forest"]:
@@ -238,47 +252,69 @@ func _supply_tick() -> void:
 			a["morale"] = max(20, int(a["morale"]) - 5)
 
 func _ai_turn() -> void:
-	# Priorities: defend own forts, attack adjacent weak player territory, recruit if rich.
-	var ai_rev := 40
-	for t in territories:
-		if t.get("owner") == enemy_faction:
-			ai_rev += int(t.get("revenue", 0))
+	var enemy_ids: Array = []
 	for a in armies:
-		if a["owner"] != enemy_faction:
-			continue
-		a["mp"] = a.get("mp_max", 3)
-		var acted := false
-		# attack adjacent player territory if stronger
-		var options: Array = neighbours_of(a["territory"])
-		options.shuffle()
-		for nid in options:
-			var nt := territory_by_id(nid)
-			if at_war and nt.get("owner") == player_faction and a["mp"] > 0:
-				var defenders := []
-				for oa in armies_at(nid):
-					if oa["owner"] == player_faction:
-						defenders.append(oa)
-				if defenders.is_empty() or strength_of(a) >= strength_of(defenders[0]) - 2:
-					_resolve_attack(a, nid, "aggressive")
+		if a["owner"] != player_faction and a["owner"] not in enemy_ids:
+			enemy_ids.append(a["owner"])
+	for t in territories:
+		var own = str(t.get("owner", ""))
+		if own != player_faction and own != "" and own not in enemy_ids:
+			enemy_ids.append(own)
+	for eid in enemy_ids:
+		var ai_rev := 30
+		for t in territories:
+			if t.get("owner") == eid:
+				ai_rev += int(t.get("revenue", 0))
+		var fac := faction_by_id(eid)
+		var fname := str(fac.get("name", eid))
+		for a in armies:
+			if a["owner"] != eid:
+				continue
+			a["mp"] = a.get("mp_max", 3)
+			var acted := false
+			var options: Array = neighbours_of(a["territory"])
+			options.shuffle()
+			if at_war:
+				for nid in options:
+					var nt := territory_by_id(nid)
+					if nt.get("owner") != player_faction or a["mp"] <= 0:
+						continue
+					var defenders: Array = []
+					for oa in armies_at(nid):
+						if oa["owner"] == player_faction:
+							defenders.append(oa)
+					var ok := defenders.is_empty() or strength_of(a) >= strength_of(defenders[0]) - 1
+					if ok:
+						_resolve_attack(a, nid, "aggressive")
+						acted = true
+						break
+			if acted:
+				continue
+			if at_war:
+				for nid in options:
+					var nt2 := territory_by_id(nid)
+					if nt2.get("owner") == eid:
+						continue
+					if armies_at(nid).size() > 0:
+						continue
+					if a["mp"] <= 0:
+						continue
+					a["territory"] = nid
+					a["mp"] -= 1
+					nt2["owner"] = eid
+					explored[nid] = true
+					log_lines.append("%s occupied %s." % [fname, nt2["name"]])
 					acted = true
 					break
-		if acted:
-			continue
-		# step toward a player territory
-		for nid in neighbours_of(a["territory"]):
-			var nt2 := territory_by_id(nid)
-			if at_war and nt2.get("owner") != enemy_faction and armies_at(nid).is_empty() and a["mp"] > 0:
-				a["territory"] = nid
-				a["mp"] -= 1
-				nt2["owner"] = enemy_faction
-				log_lines.append("Adil Shahi occupied %s." % nt2["name"])
-				acted = true
-				break
-		if not acted and ai_rev >= 40 and a["units"].size() < 6:
-			a["units"].append("infantry")
-			ai_rev -= 40
-			log_lines.append("Adil Shahi recruited infantry.")
-	log_lines.append("Adil Shahi ended the turn.")
+			if acted:
+				continue
+			if ai_rev >= 40 and a["units"].size() < 7:
+				var prefer := "light_cavalry" if str(campaign.get("era", "")) in ["era2", "era3"] else "infantry"
+				a["units"].append(prefer)
+				ai_rev -= int(unit_def(prefer).get("cost", 40))
+				log_lines.append("%s recruited %s." % [fname, prefer])
+		log_lines.append("%s ended orders." % fname)
+	log_lines.append("AI turn complete.")
 
 func attack(army: Dictionary, dest: String, tactic: String) -> String:
 	if phase != "player" or army["owner"] != player_faction:
@@ -367,35 +403,59 @@ func _resolve_attack(army: Dictionary, dest: String, tactic: String) -> String:
 
 func _check_end() -> void:
 	var owned := 0
-	var has_raigad := false
-	var has_pratap := false
-	var has_sinhagad := false
-	var has_pune := false
+	var by_id := {}
 	for t in territories:
+		by_id[t["id"]] = t
 		if t.get("owner") == player_faction:
 			owned += 1
-			if t["id"] == "raigad":
-				has_raigad = true
-			if t["id"] == "pratapgad":
-				has_pratap = true
-			if t["id"] == "sinhagad":
-				has_sinhagad = true
-			if t["id"] == "pune":
-				has_pune = true
 	var player_alive := false
 	for a in armies:
 		if a["owner"] == player_faction and a["units"].size() > 0:
 			player_alive = true
-	if not has_raigad or not player_alive:
-		phase = "over"
-		outcome = "defeat"
-		outcome_detail = "Raigad lost or all armies destroyed."
-		return
-	if (has_raigad and has_pratap and owned >= 7) or (has_sinhagad and has_pune):
-		phase = "over"
-		outcome = "victory"
-		outcome_detail = "Victory conditions met: forts and territory."
-		return
+	var cid := str(campaign.get("id", ""))
+	if cid == "peshwa_thrust":
+		var has_pune := by_id.get("pune2", {}).get("owner") == player_faction
+		var has_ahmed := by_id.get("ahmednagar", {}).get("owner") == player_faction
+		var has_hyd := by_id.get("hyderabad", {}).get("owner") == player_faction
+		if not has_pune or not player_alive:
+			phase = "over"
+			outcome = "defeat"
+			outcome_detail = "Pune lost or all armies destroyed."
+			return
+		if (owned >= 7 and has_ahmed) or has_hyd:
+			phase = "over"
+			outcome = "victory"
+			outcome_detail = "Victory conditions met: expansion objectives."
+			return
+	elif cid == "confederacy_pressure":
+		var has_gwalior := by_id.get("gwalior", {}).get("owner") == player_faction
+		var has_delhi := by_id.get("delhi_fringe", {}).get("owner") == player_faction
+		var has_doab := by_id.get("doab", {}).get("owner") == player_faction
+		if not has_gwalior or not player_alive:
+			phase = "over"
+			outcome = "defeat"
+			outcome_detail = "Gwalior lost or all armies destroyed."
+			return
+		if (owned >= 6 and has_gwalior) or (has_delhi and has_doab):
+			phase = "over"
+			outcome = "victory"
+			outcome_detail = "Victory conditions met: confederacy objectives."
+			return
+	else:
+		var has_raigad := by_id.get("raigad", {}).get("owner") == player_faction
+		var has_pratap := by_id.get("pratapgad", {}).get("owner") == player_faction
+		var has_sinhagad := by_id.get("sinhagad", {}).get("owner") == player_faction
+		var has_pune := by_id.get("pune", {}).get("owner") == player_faction
+		if not has_raigad or not player_alive:
+			phase = "over"
+			outcome = "defeat"
+			outcome_detail = "Raigad lost or all armies destroyed."
+			return
+		if (has_raigad and has_pratap and owned >= 7) or (has_sinhagad and has_pune):
+			phase = "over"
+			outcome = "victory"
+			outcome_detail = "Victory conditions met: forts and territory."
+			return
 	if turn > max_turns:
 		phase = "over"
 		outcome = "defeat"
@@ -420,6 +480,20 @@ func declare_war() -> String:
 	log_lines.append("War declared.")
 	return "War declared."
 
+func pay_tribute() -> String:
+	if revenue < 25:
+		return "Need 25 revenue."
+	revenue -= 25
+	relation = mini(40, relation + 12)
+	log_lines.append("Tribute paid. GAMEPLAY action, not a documented payment.")
+	return "Tribute paid. Relation %d." % relation
+
+func seek_access() -> String:
+	if relation < 0:
+		return "Access refused. Relation %d." % relation
+	log_lines.append("Military access granted for this scenario (gameplay).")
+	return "Military access granted (gameplay). Enemy territory may be crossed while at peace."
+
 func is_visible(tid: String) -> bool:
 	var t := territory_by_id(tid)
 	if t.get("owner") == player_faction:
@@ -442,7 +516,8 @@ func to_save() -> Dictionary:
 		"outcome_detail": outcome_detail,
 		"relation": relation,
 		"at_war": at_war,
-		"explored": explored
+		"explored": explored,
+		"selected_campaign_path": selected_campaign_path
 	}
 
 func save_game() -> String:
@@ -483,4 +558,5 @@ func load_game() -> bool:
 	var ex = data.get("explored", {})
 	if typeof(ex) == TYPE_DICTIONARY:
 		explored = ex
+	selected_campaign_path = str(data.get("selected_campaign_path", selected_campaign_path))
 	return true

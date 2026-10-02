@@ -73,6 +73,12 @@ text = "Offer peace"
 [node name="War" type="Button" parent="Side/Buttons"]
 text = "Declare war"
 
+[node name="Tribute" type="Button" parent="Side/Buttons"]
+text = "Tribute 25"
+
+[node name="Access" type="Button" parent="Side/Buttons"]
+text = "Seek access"
+
 [node name="EndPanel" type="ColorRect" parent="."]
 visible = false
 anchor_left = 0.15
@@ -110,4 +116,6 @@ text = "Return to menu"
 [connection signal="pressed" from="Side/Buttons/Menu" to="." method="_on_menu"]
 [connection signal="pressed" from="Side/Buttons/Peace" to="." method="_on_peace"]
 [connection signal="pressed" from="Side/Buttons/War" to="." method="_on_war"]
+[connection signal="pressed" from="Side/Buttons/Tribute" to="." method="_on_tribute"]
+[connection signal="pressed" from="Side/Buttons/Access" to="." method="_on_access"]
 [connection signal="pressed" from="EndPanel/VBox/Menu2" to="." method="_on_menu"]

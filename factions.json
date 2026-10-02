@@ -3,14 +3,49 @@
     "id": "maratha",
     "name": "Swarajya",
     "color": "#c4a574",
-    "historical_note": "Maratha polity consolidating under Shivaji in the western Deccan. Gameplay faction abstraction.",
+    "historical_note": "Maratha polity under Shivaji / later Peshwa leadership. Gameplay faction abstraction.",
     "confidence": "high"
   },
   {
     "id": "adilshahi",
     "name": "Adil Shahi",
     "color": "#8b3a3a",
-    "historical_note": "Bijapur sultanate, the principal regional power opposing early Swarajya expansion. Simplified for this scenario.",
+    "historical_note": "Bijapur sultanate.",
     "confidence": "high"
+  },
+  {
+    "id": "nizam",
+    "name": "Nizam of Hyderabad",
+    "color": "#3a5a8b",
+    "historical_note": "Asaf Jahi power in the Deccan from the early 18th century. Simplified for Era II.",
+    "confidence": "high"
+  },
+  {
+    "id": "mughal",
+    "name": "Mughal remnant",
+    "color": "#6b4a8b",
+    "historical_note": "Late Mughal authority in the north and Deccan periphery. Highly abstracted.",
+    "confidence": "medium"
+  },
+  {
+    "id": "scindia",
+    "name": "Scindia (Gwalior)",
+    "color": "#a67c52",
+    "historical_note": "One of the major Maratha houses of the later confederacy. Simplified.",
+    "confidence": "high"
+  },
+  {
+    "id": "holkar",
+    "name": "Holkar (Indore)",
+    "color": "#7a5c3a",
+    "historical_note": "Major Maratha house based in Indore / Malwa. Simplified.",
+    "confidence": "high"
+  },
+  {
+    "id": "company",
+    "name": "East India Company",
+    "color": "#4a6a4a",
+    "historical_note": "British East India Company as a late-period regional power abstraction.",
+    "confidence": "medium"
   }
 ]

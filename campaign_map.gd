@@ -175,3 +175,24 @@ func _on_peace() -> void:
 func _on_war() -> void:
 	GameState.log_lines.append(GameState.declare_war())
 	_refresh()
+
+func _on_tribute() -> void:
+	GameState.log_lines.append(GameState.pay_tribute())
+	_refresh()
+
+func _on_access() -> void:
+	GameState.log_lines.append(GameState.seek_access())
+	_refresh()
+
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			$MapLayer.scale *= 1.08
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			$MapLayer.scale *= 0.92
+		$MapLayer.scale.x = clampf($MapLayer.scale.x, 0.6, 1.8)
+		$MapLayer.scale.y = $MapLayer.scale.x
+	elif event is InputEventScreenDrag:
+		$MapLayer.position += event.relative
+	elif event is InputEventMouseMotion and event.button_mask & MOUSE_BUTTON_MASK_MIDDLE:
+		$MapLayer.position += event.relative

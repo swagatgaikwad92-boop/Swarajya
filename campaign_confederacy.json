@@ -1,0 +1,65 @@
+{
+  "id": "confederacy_pressure",
+  "title": "Houses under Pressure",
+  "era": "era3",
+  "year": 1790,
+  "historical_background": "In the later eighteenth century the Maratha polity operated as a confederacy of powerful houses (including Scindia and Holkar) while Company power expanded in northern India. This scenario is a gameplay abstraction of competing interests and external pressure, not a reconstruction of any single Anglo-Maratha war.",
+  "historical_outcome": "House rivalries and Company expansion reshaped the political map; the eventual settlement of Maratha power is outside a single short scenario. Confidence medium on simplified relationships.",
+  "confidence": "medium",
+  "player_faction": "scindia",
+  "enemy_faction": "company",
+  "victory": "Hold Gwalior and control at least 6 territories, or capture Delhi fringe and Doab posts.",
+  "defeat": "Lose Gwalior, or lose all armies, or survive 12 turns without victory.",
+  "max_turns": 12,
+  "starting_revenue": 110,
+  "starting_manpower": 7,
+  "starting_stability": 45,
+  "territories_file": "res://data/territories/territories_era3.json",
+  "forts_file": "res://data/forts/forts_era3.json",
+  "armies": [
+    {
+      "id": "a_scindia",
+      "owner": "scindia",
+      "commander": "mahaji_scindia",
+      "territory": "gwalior",
+      "units": [
+        "infantry",
+        "infantry",
+        "light_cavalry",
+        "light_cavalry"
+      ],
+      "mp": 3,
+      "morale": 80,
+      "supply": 80
+    },
+    {
+      "id": "a_holkar",
+      "owner": "holkar",
+      "commander": "tukoji_holkar",
+      "territory": "indore",
+      "units": [
+        "light_cavalry",
+        "light_cavalry",
+        "infantry"
+      ],
+      "mp": 3,
+      "morale": 75,
+      "supply": 75
+    },
+    {
+      "id": "a_company",
+      "owner": "company",
+      "commander": "company_officer",
+      "territory": "delhi_fringe",
+      "units": [
+        "infantry",
+        "infantry",
+        "infantry",
+        "light_cavalry"
+      ],
+      "mp": 3,
+      "morale": 80,
+      "supply": 85
+    }
+  ]
+}

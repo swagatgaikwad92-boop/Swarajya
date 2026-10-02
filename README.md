@@ -1,7 +1,8 @@
 # SWARAJYA: THE MARATHA AGE
-Version 0.2 vertical slice. Original Godot 4 project.
+Version 0.6. Original Godot 4 project.
 
-Open `project.godot` in Godot 4.3+.
-Autoload `GameState` is registered below — if the editor asks, confirm it.
+Open project.godot in Godot 4.3+.
+Autoload GameState must point to res://scripts/core/game_state.gd.
 
-See docs/VERSION_0.1_NOTES.md for the test checklist and Android export steps.
+Playable: Era I and Era II vertical slices.
+See docs/VERSION_0.1_NOTES.md.

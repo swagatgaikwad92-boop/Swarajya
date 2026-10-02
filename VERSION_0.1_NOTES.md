@@ -49,3 +49,22 @@ This scenario is not a reconstruction of the 1659 Pratapgad encounter.
 - Fog of war: unexplored territories show as Unknown. Owning or moving next to a territory reveals it.
 - Diplomacy stub: offer peace (rejected while relation is low), declare war. AI will not attack during peace.
 - Relation is a gameplay value, not a historical measurement.
+
+## 0.4 additions
+- Scroll wheel or pinch-style drag pans/zooms the map (mouse wheel, middle-drag, screen drag).
+- Tribute (25 revenue, raises relation) and seek access (granted only if relation >= 0).
+- While at peace with access, armies may enter enemy-owned empty territory without capturing it by attack. Entering still reveals fog.
+- Era II data file added; scenario remains locked.
+
+## 0.5 additions
+- Playable Era II scenario: Cavalry into the Deccan (Peshwa abstraction, start ~1728).
+- New map: 10 territories, 3 forts, factions Maratha / Nizam / Mughal remnant.
+- Commanders Baji Rao I and Nizam-ul-Mulk.
+- Campaign-specific victory/defeat and fog seeds.
+- Era select starts either Era I or Era II.
+- Historical notes still separated from gameplay numbers; Palkhed is referenced, not simulated.
+
+## 0.6 additions
+- Playable Era III: Houses under Pressure.
+- Multi-faction AI for all non-player factions.
+- Era select starts I, II, or III.

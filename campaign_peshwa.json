@@ -1,0 +1,64 @@
+{
+  "id": "peshwa_thrust",
+  "title": "Cavalry into the Deccan",
+  "era": "era2",
+  "year": 1728,
+  "historical_background": "In the 1720s and 1730s the Peshwa Baji Rao I directed rapid cavalry campaigns across the Deccan, clashing and bargaining with the Nizam and other regional powers. This scenario is a gameplay abstraction of that expansion pressure, not a reconstruction of any single battle such as Palkhed (1728).",
+  "historical_outcome": "Maratha cavalry pressure extracted chauth and shaped Deccan politics through a mix of battle, raid, and negotiation. Exact sequences and numbers remain debated.",
+  "confidence": "medium",
+  "player_faction": "maratha",
+  "enemy_faction": "nizam",
+  "victory": "Control at least 7 territories including Ahmednagar, or capture Hyderabad.",
+  "defeat": "Lose Pune, or lose all armies, or survive 14 turns without meeting victory.",
+  "max_turns": 14,
+  "starting_revenue": 100,
+  "starting_manpower": 8,
+  "starting_stability": 55,
+  "territories_file": "res://data/territories/territories_era2.json",
+  "forts_file": "res://data/forts/forts_era2.json",
+  "armies": [
+    {
+      "id": "a_bajirao",
+      "owner": "maratha",
+      "commander": "bajirao",
+      "territory": "pune2",
+      "units": [
+        "light_cavalry",
+        "light_cavalry",
+        "infantry",
+        "light_cavalry"
+      ],
+      "mp": 4,
+      "morale": 85,
+      "supply": 85
+    },
+    {
+      "id": "a_nizam",
+      "owner": "nizam",
+      "commander": "nizam_ul_mulk",
+      "territory": "hyderabad",
+      "units": [
+        "infantry",
+        "infantry",
+        "light_cavalry",
+        "infantry"
+      ],
+      "mp": 3,
+      "morale": 75,
+      "supply": 80
+    },
+    {
+      "id": "a_nizam2",
+      "owner": "nizam",
+      "commander": "nizam_ul_mulk",
+      "territory": "ahmednagar",
+      "units": [
+        "infantry",
+        "light_cavalry"
+      ],
+      "mp": 3,
+      "morale": 70,
+      "supply": 75
+    }
+  ]
+}

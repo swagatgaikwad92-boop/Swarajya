@@ -12,41 +12,62 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color(0.11, 0.09, 0.07, 1)
 
-[node name="VBox" type="VBoxContainer" parent="."]
-offset_left = 48.0
-offset_top = 36.0
-offset_right = 900.0
-offset_bottom = 640.0
-theme_override_constants/separation = 12
+[node name="Scroll" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = -24.0
+offset_bottom = -16.0
 
-[node name="Title" type="Label" parent="VBox"]
+[node name="VBox" type="VBoxContainer" parent="Scroll"]
+custom_minimum_size = Vector2(900, 0)
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="Scroll/VBox"]
 theme_override_font_sizes/font_size = 28
 theme_override_colors/font_color = Color(0.93, 0.84, 0.62, 1)
 text = "ERA SELECTION"
 
-[node name="Era1" type="Label" parent="VBox"]
+[node name="Era1" type="Label" parent="Scroll/VBox"]
 autowrap_mode = 3
 theme_override_colors/font_color = Color(0.9, 0.86, 0.76, 1)
 text = "ERA I — Rise of Swarajya (c. 1645–1680)
 Identity: mobility, forts, survival, consolidation.
-Playable scenario: Forts of the Western Deccan.
-Factions: Swarajya, Adil Shahi.
-This is a gameplay abstraction of mid-1650s consolidation, not a literal reconstruction."
+Scenario: Forts of the Western Deccan."
 
-[node name="Start" type="Button" parent="VBox"]
-custom_minimum_size = Vector2(280, 48)
+[node name="Start1" type="Button" parent="Scroll/VBox"]
+custom_minimum_size = Vector2(320, 44)
 text = "Start Era I campaign"
 
-[node name="Era2" type="Label" parent="VBox"]
-theme_override_colors/font_color = Color(0.6, 0.56, 0.5, 1)
-text = "ERA II — Maratha Expansion (Peshwa period) — LOCKED"
+[node name="Era2" type="Label" parent="Scroll/VBox"]
+autowrap_mode = 3
+theme_override_colors/font_color = Color(0.9, 0.86, 0.76, 1)
+text = "ERA II — Maratha Expansion (c. 1713–1761)
+Identity: cavalry, revenue, diplomacy, large campaigns.
+Scenario: Cavalry into the Deccan (Peshwa abstraction)."
 
-[node name="Era3" type="Label" parent="VBox"]
-theme_override_colors/font_color = Color(0.6, 0.56, 0.5, 1)
-text = "ERA III — Confederacy and later period — LOCKED"
+[node name="Start2" type="Button" parent="Scroll/VBox"]
+custom_minimum_size = Vector2(320, 44)
+text = "Start Era II campaign"
 
-[node name="Back" type="Button" parent="VBox"]
+[node name="Era3" type="Label" parent="Scroll/VBox"]
+autowrap_mode = 3
+theme_override_colors/font_color = Color(0.9, 0.86, 0.76, 1)
+text = "ERA III — Confederacy and later period (c. 1761–1818)
+Identity: politics, competing houses, large armies, diplomacy.
+Scenario: Houses under Pressure (Scindia player vs Company; Holkar present).
+GAMEPLAY abstraction — not a reconstruction of any Anglo-Maratha war."
+
+[node name="Start3" type="Button" parent="Scroll/VBox"]
+custom_minimum_size = Vector2(320, 44)
+text = "Start Era III campaign"
+
+[node name="Back" type="Button" parent="Scroll/VBox"]
 text = "Back"
 
-[connection signal="pressed" from="VBox/Start" to="." method="_on_start"]
-[connection signal="pressed" from="VBox/Back" to="." method="_on_back"]
+[connection signal="pressed" from="Scroll/VBox/Start1" to="." method="_on_start_era1"]
+[connection signal="pressed" from="Scroll/VBox/Start2" to="." method="_on_start_era2"]
+[connection signal="pressed" from="Scroll/VBox/Start3" to="." method="_on_start_era3"]
+[connection signal="pressed" from="Scroll/VBox/Back" to="." method="_on_back"]
