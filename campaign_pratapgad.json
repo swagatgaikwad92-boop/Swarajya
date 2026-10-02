@@ -1,0 +1,48 @@
+{
+  "id": "early_consolidation",
+  "title": "Forts of the Western Deccan",
+  "era": "era1",
+  "year": 1656,
+  "historical_background": "By the mid-1650s Shivaji had taken and held several forts in the western Deccan and was in conflict with the Adil Shahi sultanate of Bijapur. This scenario is a gameplay abstraction of that consolidation, not a turn-by-turn reconstruction of a single documented campaign. The 1659 Pratapgad encounter with Afzal Khan lies just after this start date and is referenced, not simulated in full.",
+  "historical_outcome": "Swarajya continued to expand through fort capture, mobility, and negotiated or forced arrangements with Bijapur and later the Mughals. Exact sequences and troop strengths remain debated in places.",
+  "confidence": "medium",
+  "player_faction": "maratha",
+  "enemy_faction": "adilshahi",
+  "victory": "Hold Raigad and Pratapgad, and control at least 7 territories, or capture Sinhagad and Pune.",
+  "defeat": "Lose Raigad, or lose all armies, or survive 16 turns without meeting victory.",
+  "max_turns": 16,
+  "starting_revenue": 80,
+  "starting_manpower": 6,
+  "starting_stability": 60,
+  "armies": [
+    {
+      "id": "a_shivaji",
+      "owner": "maratha",
+      "commander": "shivaji",
+      "territory": "raigad",
+      "units": [
+        "infantry",
+        "infantry",
+        "light_cavalry"
+      ],
+      "mp": 3,
+      "morale": 80,
+      "supply": 80
+    },
+    {
+      "id": "a_afzal",
+      "owner": "adilshahi",
+      "commander": "afzal",
+      "territory": "pune",
+      "units": [
+        "infantry",
+        "infantry",
+        "light_cavalry",
+        "light_cavalry"
+      ],
+      "mp": 3,
+      "morale": 75,
+      "supply": 80
+    }
+  ]
+}

@@ -1,32 +1,196 @@
-{
-  "pune": {"name": "Pune", "terrain": "plains", "revenue": 6, "manpower": 2, "fort": "", "supply_source": true, "pos": [470, 460],
-    "neighbours": ["chakan", "maval", "kondana", "purandar", "supe"],
-    "historical": {"text": "Region of the Bhosle family jagir under Adil Shahi suzerainty. Shivaji's early administration there is associated with Dadoji Konddev, who is usually said to have died c. 1647. Because the jagir was held within the Adil Shahi system, treating Pune as simply player-owned is a gameplay simplification.", "confidence": "MEDIUM", "sources": ["Sarkar, Jadunath. Shivaji and His Times", "Gordon, Stewart. The Marathas 1600-1818 (Cambridge, 1993)"]}},
-  "chakan": {"name": "Chakan", "terrain": "plains", "revenue": 2, "manpower": 1, "fort": "chakan", "pos": [480, 270],
-    "neighbours": ["pune", "maval"],
-    "historical": {"text": "Town and ground fort north of Pune on routes toward the north. Control c. 1646-1649 is uncertain; see the Chakan fort entry.", "confidence": "UNCERTAIN", "sources": ["Sarkar, Jadunath. Shivaji and His Times"]}},
-  "maval": {"name": "Maval", "terrain": "forest", "revenue": 3, "manpower": 3, "fort": "", "pos": [260, 350],
-    "neighbours": ["chakan", "pune", "torna", "kondana"],
-    "historical": {"text": "Hill-and-valley country west of Pune from which the Mavale foot soldiers were drawn. Its role as a recruiting base for early Maratha forces is widely described.", "confidence": "HIGH", "sources": ["Gordon, Stewart. The Marathas 1600-1818 (Cambridge, 1993)"]}},
-  "torna": {"name": "Torna", "terrain": "mountains", "revenue": 1, "manpower": 1, "fort": "torna", "pos": [150, 700],
-    "neighbours": ["maval", "rajgad"],
-    "historical": {"text": "Mountain stronghold district around Torna fort. See the Torna fort entry for the traditional account and its uncertainties.", "confidence": "MEDIUM", "sources": ["Sarkar, Jadunath. Shivaji and His Times"]}},
-  "rajgad": {"name": "Rajgad", "terrain": "mountains", "revenue": 2, "manpower": 1, "fort": "rajgad", "pos": [300, 800],
-    "neighbours": ["torna", "kondana"],
-    "historical": {"text": "Mountain district around Murumbdev hill and Rajgad. See the Rajgad fort entry.", "confidence": "MEDIUM", "sources": ["Mehendale, Gajanan B. Shivaji: His Life and Times"]}},
-  "kondana": {"name": "Kondana", "terrain": "mountains", "revenue": 2, "manpower": 1, "fort": "kondana", "pos": [400, 640],
-    "neighbours": ["pune", "maval", "rajgad"],
-    "historical": {"text": "Mountain district around Kondana fort south-west of Pune. See the fort entry.", "confidence": "UNCERTAIN", "sources": ["Sarkar, Jadunath. Shivaji and His Times"]}},
-  "purandar": {"name": "Purandar", "terrain": "hills", "revenue": 3, "manpower": 1, "fort": "purandar", "pos": [610, 680],
-    "neighbours": ["pune", "supe", "wai"],
-    "historical": {"text": "Hill country around Purandar fort south-east of Pune. See the fort entry.", "confidence": "UNCERTAIN", "sources": ["Sarkar, Jadunath. Shivaji and His Times"]}},
-  "supe": {"name": "Supe", "terrain": "dry", "revenue": 4, "manpower": 2, "fort": "", "pos": [700, 500],
-    "neighbours": ["pune", "purandar", "bijapur"],
-    "historical": {"text": "Dry plateau area east of Pune commonly linked in the literature with Shahaji's jagir lands (Supe-Baramati). Its exact extent and status in this period are simplified here.", "confidence": "MEDIUM", "sources": ["Gordon, Stewart. The Marathas 1600-1818 (Cambridge, 1993)"]}},
-  "wai": {"name": "Wai", "terrain": "river", "revenue": 4, "manpower": 2, "fort": "", "pos": [440, 900],
-    "neighbours": ["purandar", "bijapur"],
-    "historical": {"text": "District in the Krishna river valley under Adil Shahi administration in this period. Later Wai-region events fall outside this scenario.", "confidence": "MEDIUM", "sources": ["Eaton, Richard M. A Social History of the Deccan, 1300-1761 (Cambridge, 2005)"]}},
-  "bijapur": {"name": "Bijapur Heartland", "terrain": "dry", "revenue": 10, "manpower": 4, "fort": "", "supply_source": true, "pos": [720, 1180],
-    "neighbours": ["supe", "wai"],
-    "historical": {"text": "Bijapur was the capital of the Adil Shahi Sultanate. Here it is an abstract off-map heartland: its distance and geography relative to Pune are not to scale.", "confidence": "HIGH", "sources": ["Eaton, Richard M. A Social History of the Deccan, 1300-1761 (Cambridge, 2005)"]}}
-}
+[
+  {
+    "id": "raigad",
+    "name": "Raigad",
+    "owner": "maratha",
+    "terrain": "hills",
+    "neighbours": [
+      "pratapgad",
+      "mahad",
+      "torna"
+    ],
+    "fort": "raigad",
+    "revenue": 8,
+    "strategic": 5,
+    "pos": [
+      180,
+      420
+    ]
+  },
+  {
+    "id": "pratapgad",
+    "name": "Pratapgad",
+    "owner": "maratha",
+    "terrain": "hills",
+    "neighbours": [
+      "raigad",
+      "satara",
+      "wai"
+    ],
+    "fort": "pratapgad",
+    "revenue": 6,
+    "strategic": 4,
+    "pos": [
+      320,
+      300
+    ]
+  },
+  {
+    "id": "torna",
+    "name": "Torna",
+    "owner": "maratha",
+    "terrain": "mountains",
+    "neighbours": [
+      "raigad",
+      "sinhagad",
+      "pune"
+    ],
+    "fort": "torna",
+    "revenue": 5,
+    "strategic": 3,
+    "pos": [
+      280,
+      500
+    ]
+  },
+  {
+    "id": "sinhagad",
+    "name": "Sinhagad",
+    "owner": "adilshahi",
+    "terrain": "hills",
+    "neighbours": [
+      "torna",
+      "pune",
+      "wai"
+    ],
+    "fort": "sinhagad",
+    "revenue": 7,
+    "strategic": 4,
+    "pos": [
+      420,
+      460
+    ]
+  },
+  {
+    "id": "pune",
+    "name": "Pune",
+    "owner": "adilshahi",
+    "terrain": "plains",
+    "neighbours": [
+      "sinhagad",
+      "torna",
+      "wai",
+      "junner"
+    ],
+    "fort": null,
+    "revenue": 12,
+    "strategic": 4,
+    "pos": [
+      500,
+      380
+    ]
+  },
+  {
+    "id": "satara",
+    "name": "Satara",
+    "owner": "adilshahi",
+    "terrain": "hills",
+    "neighbours": [
+      "pratapgad",
+      "wai",
+      "karad"
+    ],
+    "fort": null,
+    "revenue": 9,
+    "strategic": 3,
+    "pos": [
+      360,
+      180
+    ]
+  },
+  {
+    "id": "wai",
+    "name": "Wai",
+    "owner": "adilshahi",
+    "terrain": "plains",
+    "neighbours": [
+      "pratapgad",
+      "satara",
+      "pune",
+      "sinhagad"
+    ],
+    "fort": null,
+    "revenue": 8,
+    "strategic": 2,
+    "pos": [
+      430,
+      280
+    ]
+  },
+  {
+    "id": "mahad",
+    "name": "Mahad",
+    "owner": "maratha",
+    "terrain": "forest",
+    "neighbours": [
+      "raigad",
+      "dabhol"
+    ],
+    "fort": null,
+    "revenue": 6,
+    "strategic": 2,
+    "pos": [
+      120,
+      520
+    ]
+  },
+  {
+    "id": "dabhol",
+    "name": "Dabhol",
+    "owner": "adilshahi",
+    "terrain": "plains",
+    "neighbours": [
+      "mahad",
+      "raigad"
+    ],
+    "fort": null,
+    "revenue": 10,
+    "strategic": 3,
+    "pos": [
+      80,
+      360
+    ]
+  },
+  {
+    "id": "karad",
+    "name": "Karad",
+    "owner": "adilshahi",
+    "terrain": "plains",
+    "neighbours": [
+      "satara"
+    ],
+    "fort": null,
+    "revenue": 7,
+    "strategic": 2,
+    "pos": [
+      300,
+      80
+    ]
+  },
+  {
+    "id": "junner",
+    "name": "Junnar",
+    "owner": "adilshahi",
+    "terrain": "hills",
+    "neighbours": [
+      "pune"
+    ],
+    "fort": null,
+    "revenue": 6,
+    "strategic": 2,
+    "pos": [
+      620,
+      300
+    ]
+  }
+]

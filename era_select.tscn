@@ -3,8 +3,50 @@
 [ext_resource type="Script" path="res://scripts/ui/era_select.gd" id="1"]
 
 [node name="EraSelect" type="Control"]
-layout_mode = 3
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource("1")
+
+[node name="Bg" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.11, 0.09, 0.07, 1)
+
+[node name="VBox" type="VBoxContainer" parent="."]
+offset_left = 48.0
+offset_top = 36.0
+offset_right = 900.0
+offset_bottom = 640.0
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="VBox"]
+theme_override_font_sizes/font_size = 28
+theme_override_colors/font_color = Color(0.93, 0.84, 0.62, 1)
+text = "ERA SELECTION"
+
+[node name="Era1" type="Label" parent="VBox"]
+autowrap_mode = 3
+theme_override_colors/font_color = Color(0.9, 0.86, 0.76, 1)
+text = "ERA I — Rise of Swarajya (c. 1645–1680)
+Identity: mobility, forts, survival, consolidation.
+Playable scenario: Forts of the Western Deccan.
+Factions: Swarajya, Adil Shahi.
+This is a gameplay abstraction of mid-1650s consolidation, not a literal reconstruction."
+
+[node name="Start" type="Button" parent="VBox"]
+custom_minimum_size = Vector2(280, 48)
+text = "Start Era I campaign"
+
+[node name="Era2" type="Label" parent="VBox"]
+theme_override_colors/font_color = Color(0.6, 0.56, 0.5, 1)
+text = "ERA II — Maratha Expansion (Peshwa period) — LOCKED"
+
+[node name="Era3" type="Label" parent="VBox"]
+theme_override_colors/font_color = Color(0.6, 0.56, 0.5, 1)
+text = "ERA III — Confederacy and later period — LOCKED"
+
+[node name="Back" type="Button" parent="VBox"]
+text = "Back"
+
+[connection signal="pressed" from="VBox/Start" to="." method="_on_start"]
+[connection signal="pressed" from="VBox/Back" to="." method="_on_back"]

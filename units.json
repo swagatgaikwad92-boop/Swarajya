@@ -1,8 +1,35 @@
-{
-  "infantry": {"name": "Foot Infantry", "short": "Inf", "attack": 10, "defense": 10, "move": 3, "cost": 10, "manpower": 1,
-    "historical": {"text": "Hill-country foot soldiers, including levies from the Maval valleys, are widely described in secondary literature as central to early Maratha warfare. One game unit stands for a company-sized body of men; the scale is a gameplay abstraction.", "confidence": "MEDIUM", "sources": ["Gordon, Stewart. The Marathas 1600-1818 (Cambridge, 1993)"]}},
-  "cavalry": {"name": "Light Cavalry", "short": "Cav", "attack": 14, "defense": 6, "move": 5, "cost": 22, "manpower": 1,
-    "historical": {"text": "Mounted troops were important across the Deccan sultanates and in later Maratha armies. Their weakness in rugged hill country is a gameplay simplification of a real tendency.", "confidence": "MEDIUM", "sources": ["Gordon, Stewart. The Marathas 1600-1818 (Cambridge, 1993)"]}},
-  "artillery": {"name": "Siege Guns", "short": "Art", "attack": 12, "defense": 4, "move": 2, "cost": 38, "manpower": 2,
-    "historical": {"text": "Gunpowder artillery was used in sieges in this region and period. Quantities and quality for each side are not modelled from records; values here are gameplay abstractions.", "confidence": "MEDIUM", "sources": ["Eaton, Richard M. A Social History of the Deccan, 1300-1761 (Cambridge, 2005)"]}}
-}
+[
+  {
+    "id": "infantry",
+    "name": "Infantry",
+    "attack": 6,
+    "defense": 7,
+    "move": 2,
+    "cost": 40,
+    "upkeep": 2,
+    "historical_note": "Foot soldiers of the period. Numbers are gameplay abstractions.",
+    "gameplay_note": "Solid in hills and forts."
+  },
+  {
+    "id": "light_cavalry",
+    "name": "Light Cavalry",
+    "attack": 8,
+    "defense": 4,
+    "move": 4,
+    "cost": 55,
+    "upkeep": 3,
+    "historical_note": "Mobile horsemen central to Deccan warfare. Numbers are gameplay abstractions.",
+    "gameplay_note": "Strong on plains, weak in mountains."
+  },
+  {
+    "id": "garrison",
+    "name": "Fort Garrison",
+    "attack": 5,
+    "defense": 9,
+    "move": 0,
+    "cost": 30,
+    "upkeep": 1,
+    "historical_note": "Fort defenders. Numbers are gameplay abstractions.",
+    "gameplay_note": "Cannot leave a fort territory."
+  }
+]

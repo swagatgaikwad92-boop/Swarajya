@@ -1,10 +1,16 @@
-{
-  "swarajya": {"name": "Shivaji's Forces (early Swarajya)", "short_name": "Swarajya", "color": "#e0902a",
-    "recruitable": ["infantry", "cavalry"],
-    "historical": {"text": "In this slice the player leads the nascent polity built around Shivaji in the Pune highlands, c. 1646-1649, at a time when the region lay within the Adil Shahi sphere and the Bhosle family jagir. The name Swarajya is used by the game as a title; how early and in what sense contemporaries used the concept is debated.", "confidence": "MEDIUM", "sources": ["Gordon, Stewart. The Marathas 1600-1818 (Cambridge, 1993)", "Sarkar, Jadunath. Shivaji and His Times"]},
-    "gameplay_note": "No artillery recruitment in this slice: a gameplay constraint representing limited early resources, not a claim that no guns existed."},
-  "adilshahi": {"name": "Adil Shahi Sultanate (Bijapur)", "short_name": "Adil Shahi", "color": "#2f7d6b",
-    "recruitable": ["infantry", "cavalry", "artillery"],
-    "historical": {"text": "The Deccan sultanate ruled from Bijapur by the Adil Shahi dynasty. Mohammad Adil Shah reigned 1627-1656. The Adil Shahi state was the dominant regional power around Pune in the 1640s.", "confidence": "HIGH", "sources": ["Eaton, Richard M. A Social History of the Deccan, 1300-1761 (Cambridge, 2005)"]},
-    "gameplay_note": "Controlled by the computer. Its forces here are generic gameplay armies, not reconstructions of named field commands."}
-}
+[
+  {
+    "id": "maratha",
+    "name": "Swarajya",
+    "color": "#c4a574",
+    "historical_note": "Maratha polity consolidating under Shivaji in the western Deccan. Gameplay faction abstraction.",
+    "confidence": "high"
+  },
+  {
+    "id": "adilshahi",
+    "name": "Adil Shahi",
+    "color": "#8b3a3a",
+    "historical_note": "Bijapur sultanate, the principal regional power opposing early Swarajya expansion. Simplified for this scenario.",
+    "confidence": "high"
+  }
+]
