@@ -1,0 +1,14 @@
+{
+  "torna": {"name": "Torna", "territory": "torna", "strategic": 7, "defense": 0.6, "wall_max": 100, "garrison_capacity": 8,
+    "historical": {"text": "Hill fort in the Sahyadri range south-west of Pune, also called Prachandagad. Its acquisition is traditionally treated as Shivaji's first major fort gain, usually dated c. 1646-47. The exact date and whether it fell by force or by arrangement vary by account.", "confidence": "MEDIUM", "sources": ["Sarkar, Jadunath. Shivaji and His Times", "Gordon, Stewart. The Marathas 1600-1818 (Cambridge, 1993)"]}},
+  "rajgad": {"name": "Rajgad", "territory": "rajgad", "strategic": 8, "defense": 0.7, "wall_max": 100, "wall_start": 30, "garrison_capacity": 8,
+    "historical": {"text": "Fort developed on Murumbdev hill near Torna. Accounts describe it as an early headquarters of Shivaji before Raigad became the principal seat; dates of construction and use differ between sources.", "confidence": "MEDIUM", "sources": ["Sarkar, Jadunath. Shivaji and His Times", "Mehendale, Gajanan B. Shivaji: His Life and Times"]},
+    "gameplay_note": "Walls start low (30) to represent a fort still being built. This is a gameplay representation."},
+  "kondana": {"name": "Kondana (later Sinhagad)", "territory": "kondana", "strategic": 7, "defense": 0.55, "wall_max": 100, "garrison_capacity": 8,
+    "historical": {"text": "Fort south-west of Pune, known as Kondana before the later name Sinhagad. Accounts differ on when Shivaji first held it and on a traditional story that it was returned to Adil Shahi control as part of the arrangement for his father Shahaji's release around 1649.", "confidence": "UNCERTAIN", "sources": ["Sarkar, Jadunath. Shivaji and His Times"]}},
+  "purandar": {"name": "Purandar", "territory": "purandar", "strategic": 8, "defense": 0.6, "wall_max": 100, "garrison_capacity": 8,
+    "historical": {"text": "Major hill fort south-east of Pune. Shivaji's possession from about 1648 is traditional; some accounts describe a dispute within the family holding the fort as the opening he used. Details and sequence are not agreed.", "confidence": "UNCERTAIN", "sources": ["Sarkar, Jadunath. Shivaji and His Times", "Mehendale, Gajanan B. Shivaji: His Life and Times"]}},
+  "chakan": {"name": "Chakan", "territory": "chakan", "strategic": 4, "defense": 0.25, "wall_max": 100, "garrison_capacity": 5,
+    "historical": {"text": "Small ground fort north of Pune. It is best known for the 1660 siege by Mughal forces, which is outside this scenario's period. Its holder in 1646-1649 is uncertain, so its starting owner here is a gameplay assumption.", "confidence": "UNCERTAIN", "sources": ["Sarkar, Jadunath. Shivaji and His Times"]},
+    "gameplay_note": "Ground fort: weak walls, but cheap to take and a useful first target."}
+}

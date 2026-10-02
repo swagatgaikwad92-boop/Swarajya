@@ -1,0 +1,11 @@
+{
+  "shivaji": {"name": "Shivaji Bhosale", "faction": "swarajya",
+    "gameplay": {"attack_mod": 0.15, "defense_mod": 0.05, "speed_bonus": 1, "trait": "Mobile warfare"},
+    "historical": {"text": "Founder of the Maratha polity. His birth year is given as 1630 in many modern accounts and 1627 in others, so his exact age in 1646-1649 is uncertain. His reputation for mobility and use of hill forts is well established in the literature; the numeric bonuses here are gameplay values only.", "confidence": "HIGH", "sources": ["Gordon, Stewart. The Marathas 1600-1818 (Cambridge, 1993)", "Mehendale, Gajanan B. Shivaji: His Life and Times"]}},
+  "firangoji": {"name": "Firangoji Narsala", "faction": "swarajya",
+    "gameplay": {"attack_mod": 0.0, "defense_mod": 0.15, "speed_bonus": 0, "trait": "Fort defender"},
+    "historical": {"text": "Best documented as the defender of Chakan during the 1660 Mughal siege, which is outside this scenario's dates. His role and loyalties in 1646-1649 are uncertain, so placing him with the player here is a gameplay assumption, not a statement of history.", "confidence": "UNCERTAIN", "sources": ["Sarkar, Jadunath. Shivaji and His Times"]}},
+  "bijapur_sardar": {"name": "Bijapur Sardar (generic)", "faction": "adilshahi",
+    "gameplay": {"attack_mod": 0.05, "defense_mod": 0.05, "speed_bonus": 0, "trait": "Veteran commander"},
+    "historical": {"text": "FICTIONAL PLACEHOLDER. This is not a historical person. It stands in for the Adil Shahi officers whose specific identities and dates in this campaign are not modelled here.", "confidence": "UNCERTAIN", "sources": []}}
+}

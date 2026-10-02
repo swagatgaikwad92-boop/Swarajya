@@ -1,0 +1,38 @@
+{
+  "id": "early_consolidation_1646",
+  "title": "The Fort Consolidation of the Pune Highlands",
+  "period": "c. 1646-1649 (campaign runs to about 1652)",
+  "start_year": 1646,
+  "max_turns": 24,
+  "player_faction": "swarajya",
+  "era": {"title": "Era 1: The Rise of Shivaji", "summary": "Early Swarajya: building a base in the Pune highlands among Adil Shahi-held forts."},
+  "briefing": "You lead the young polity gathered around Shivaji in the hill country around Pune. The surrounding forts are held for the Adil Shahi state. Secure Torna, Rajgad, Kondana and Purandar before time runs out. Each turn is three months (a gameplay abstraction). Sieging walls, keeping supply lines short and rotating tired armies matter more than raw numbers.",
+  "historical_background": {"text": "Between roughly 1646 and 1649, traditional accounts place Shivaji's first fort acquisitions around Pune, notably Torna and Purandar, and the building of Rajgad, while his father Shahaji served the Adil Shahi state. The ordering, dates and methods are disputed, and the game compresses them into one playable campaign.", "confidence": "MEDIUM", "sources": ["Sarkar, Jadunath. Shivaji and His Times", "Gordon, Stewart. The Marathas 1600-1818 (Cambridge, 1993)", "Mehendale, Gajanan B. Shivaji: His Life and Times"]},
+  "victory": {"hold_forts": ["torna", "rajgad", "kondana", "purandar"]},
+  "defeat": {"core_territories": ["pune", "maval"], "stability_zero": true},
+  "historical_outcome": {"text": "By about 1649 traditional accounts credit Shivaji with holding Torna, Rajgad and Purandar, while Bijapur's pressure on Shahaji led to a settlement in which Kondana is said to have been returned. Details are disputed. This game's win condition (holding all four forts at once) is a gameplay target, not a documented historical state.", "confidence": "UNCERTAIN", "sources": ["Sarkar, Jadunath. Shivaji and His Times"]},
+  "start": {
+    "factions": {
+      "swarajya": {"gold": 70, "manpower": 10, "stability": 50},
+      "adilshahi": {"gold": 70, "manpower": 12, "stability": 60}
+    },
+    "territories": {
+      "pune": {"owner": "swarajya"},
+      "maval": {"owner": "swarajya"},
+      "rajgad": {"owner": "swarajya", "garrison": {"infantry": 2}, "wall": 30},
+      "chakan": {"owner": "adilshahi", "garrison": {"infantry": 2}, "wall": 100},
+      "torna": {"owner": "adilshahi", "garrison": {"infantry": 3}, "wall": 100},
+      "kondana": {"owner": "adilshahi", "garrison": {"infantry": 4}, "wall": 100},
+      "purandar": {"owner": "adilshahi", "garrison": {"infantry": 4}, "wall": 100},
+      "supe": {"owner": "adilshahi", "garrison": {"infantry": 2}},
+      "wai": {"owner": "adilshahi"},
+      "bijapur": {"owner": "adilshahi", "garrison": {"infantry": 3}}
+    },
+    "armies": [
+      {"owner": "swarajya", "commander": "shivaji", "territory": "maval", "units": {"infantry": 6, "cavalry": 1}},
+      {"owner": "swarajya", "commander": "firangoji", "territory": "pune", "units": {"infantry": 4}},
+      {"owner": "adilshahi", "commander": "bijapur_sardar", "territory": "wai", "units": {"infantry": 4, "cavalry": 2}},
+      {"owner": "adilshahi", "commander": "", "territory": "bijapur", "units": {"infantry": 6, "cavalry": 4, "artillery": 2}, "role": "guard"}
+    ]
+  }
+}
